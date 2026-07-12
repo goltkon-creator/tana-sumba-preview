@@ -225,7 +225,7 @@ section{position:relative}
 /* вертикальный CTA справа: тонкий текст + вытянутая стрелка; hover → оранжевый */
 .hero-vcta{
   position:absolute;z-index:5;right:var(--edge);
-  top:clamp(116px,17vh,190px);height:clamp(240px,34vh,400px);
+  top:50%;transform:translateY(-50%);height:clamp(240px,34vh,400px);
   display:flex;flex-direction:column;align-items:center;gap:16px;
   color:var(--cream);text-decoration:none;transition:color .35s var(--ease);
 }
@@ -635,7 +635,7 @@ input[type=range]::-moz-range-thumb{
       <p class="hero-sub reveal" data-delay="2" data-i18n="hero_sub">The island the world just discovered — before the world arrives.</p>
     </div>
   </div>
-  <a href="#numbers" class="hero-vcta reveal" data-delay="3" aria-label="Explore the numbers">
+  <a href="#numbers" class="hero-vcta" aria-label="Explore the numbers">
     <span class="vlabel" data-i18n="hero_cta">Explore the numbers</span>
     <span class="vline"></span>
     <svg class="varrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
