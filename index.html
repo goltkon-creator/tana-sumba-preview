@@ -222,6 +222,21 @@ section{position:relative}
 }
 .hero-cta:hover .hc-arrow{background:var(--terra-600);border-color:var(--terra-600);transform:translateY(5px)}
 .hero-cta:hover .hc-label::after{transform:scaleX(.35)}
+/* вертикальный CTA справа: тонкий текст + вытянутая стрелка; hover → оранжевый */
+.hero-vcta{
+  position:absolute;z-index:5;right:var(--edge);
+  top:clamp(116px,17vh,190px);height:clamp(240px,34vh,400px);
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  color:var(--cream);text-decoration:none;transition:color .35s var(--ease);
+}
+.hero-vcta .vlabel{
+  writing-mode:vertical-rl;font-family:var(--sans);text-transform:uppercase;
+  font-size:.72rem;font-weight:300;letter-spacing:.3em;white-space:nowrap;
+}
+.hero-vcta .vline{flex:1;width:1.5px;background:currentColor;opacity:.5;transition:opacity .35s var(--ease)}
+.hero-vcta .varrow{margin-top:-6px}
+.hero-vcta:hover{color:var(--terra-500)}
+.hero-vcta:hover .vline{opacity:1}
 
 /* ============ SECTION 2 — NUMBERS + CALC ============ */
 .numbers{
@@ -552,6 +567,7 @@ input[type=range]::-moz-range-thumb{
   .nav-links .navlink{display:none}
   .nav-links .lang{display:none}
   .nav-links .cta{display:none}
+  .hero-vcta{display:none}
   .burger{display:flex}
   .stats{grid-template-columns:repeat(2,1fr)}
   .results{grid-template-columns:1fr}
@@ -617,14 +633,13 @@ input[type=range]::-moz-range-thumb{
       <p class="eyebrow reveal" data-i18n="hero_eyebrow">East Nusa Tenggara · Indonesia</p>
       <h1 class="reveal" data-delay="1" data-i18n="hero_title">Own a piece of <em>Sumba</em></h1>
       <p class="hero-sub reveal" data-delay="2" data-i18n="hero_sub">The island the world just discovered — before the world arrives.</p>
-      <div class="hero-actions reveal" data-delay="3">
-        <a href="#map" class="hero-cta">
-          <span class="hc-label" data-i18n="hero_cta">Explore the island</span>
-          <span class="hc-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
-        </a>
-      </div>
     </div>
   </div>
+  <a href="#numbers" class="hero-vcta reveal" data-delay="3" aria-label="Explore the numbers">
+    <span class="vlabel" data-i18n="hero_cta">Explore the numbers</span>
+    <span class="vline"></span>
+    <svg class="varrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
   <div class="hero-word" id="gw" aria-hidden="true"><span class="base">SUMBA</span><span class="sharp">SUMBA</span></div>
 </header>
 
@@ -848,7 +863,7 @@ const I18N = {
     hero_eyebrow:"East Nusa Tenggara · Indonesia",
     hero_title:"Own a piece of <em>Sumba</em>",
     hero_sub:"The island the world just discovered — before the world arrives.",
-    hero_cta:"Explore the island", hero_scroll:"Scroll",
+    hero_cta:"Explore the numbers", hero_scroll:"Scroll",
     num_eyebrow:"The opportunity",
     num_title:"The numbers, before everyone else sees them",
     stat1:"cheaper than Bali — entry $14–25/m² vs $300–1500/m²",
@@ -904,7 +919,7 @@ const I18N = {
     hero_eyebrow:"Восточная Нуса-Тенггара · Индонезия",
     hero_title:"Твой участок на <em>Сумбе</em>",
     hero_sub:"Остров, который мир только что открыл — успей до того, как приедут все.",
-    hero_cta:"Исследовать остров", hero_scroll:"Листай",
+    hero_cta:"Исследовать цифры", hero_scroll:"Листай",
     num_eyebrow:"Возможность",
     num_title:"Цифры — пока их не увидели все",
     stat1:"дешевле Бали — вход $14–25/м² против $300–1500/м²",
