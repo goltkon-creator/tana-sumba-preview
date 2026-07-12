@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tana Sumba — Own a piece of Sumba</title>
+<meta name="description" content="Premium land on Sumba island, Indonesia — for international investors. Leasehold plots, from $6,000.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --green-950:#12241a; --green-900:#173021; --green-800:#1f4230; --green-600:#356b48;
+  --sand-50:#f6f1e7; --sand-100:#efe7d7; --sand-200:#e4d8c2;
+  --terra-700:#a8481f; --terra-600:#c65f2e; --terra-500:#d97941; --terra-400:#e8a06a;
+  --ink:#16211a; --cream:#f6f1e7;
+
+  --ease:cubic-bezier(.22,1,.36,1);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+
+  --r-sm:12px; --r-md:18px; --r-lg:26px; --r-xl:34px;
+  --shadow-sm:0 4px 18px rgba(18,36,26,.18);
+  --shadow-md:0 18px 50px rgba(18,36,26,.32);
+  --shadow-lg:0 30px 80px rgba(18,36,26,.45);
+
+  --maxw:1240px;
+  --pad:clamp(20px,5vw,80px);
+}
+
+/* ============ RESET ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--green-950);
+  color:var(--cream);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--terra-500);outline-offset:3px;border-radius:4px}
+
+/* ============ TYPO HELPERS ============ */
+.serif{font-family:var(--serif)}
+.eyebrow{
+  font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+  font-weight:600;opacity:.85;
+}
+.terra{color:var(--terra-500)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.02em}
+.section-title{
+  font-size:clamp(2.1rem,6vw,4.6rem);
+  line-height:1.02;letter-spacing:-.025em;font-weight:500;
+}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.08s}
+.reveal[data-delay="2"]{transition-delay:.16s}
+.reveal[data-delay="3"]{transition-delay:.24s}
+.reveal[data-delay="4"]{transition-delay:.32s}
+.reveal[data-delay="5"]{transition-delay:.40s}
+
+/* ============ LAYOUT ============ */
+section{position:relative}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* film grain + vignette overlay */
+.photo-overlay::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:
+    radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(10,20,14,.55) 100%);
+}
+.photo-overlay::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;opacity:.055;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px var(--pad);
+  transition:padding .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease);
+}
+.nav.scrolled{
+  padding:11px var(--pad);
+  background:rgba(18,36,26,.55);
+  backdrop-filter:blur(18px) saturate(1.4);
+  -webkit-backdrop-filter:blur(18px) saturate(1.4);
+  box-shadow:0 1px 0 rgba(246,241,231,.08);
+}
+.brand{
+  font-family:var(--serif);font-size:1.28rem;font-weight:500;letter-spacing:.14em;
+  color:var(--cream);white-space:nowrap;
+}
+.brand b{color:var(--terra-500);font-weight:500}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2vw,30px)}
+.nav-links a.navlink{
+  font-size:.86rem;font-weight:500;letter-spacing:.02em;opacity:.86;
+  position:relative;padding:4px 0;transition:opacity .3s var(--ease);
+}
+.nav-links a.navlink::after{
+  content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;
+  background:var(--terra-500);transition:width .35s var(--ease);
+}
+.nav-links a.navlink:hover{opacity:1}
+.nav-links a.navlink:hover::after{width:100%}
+
+.lang{
+  display:inline-flex;border:1px solid rgba(246,241,231,.28);border-radius:999px;
+  overflow:hidden;font-size:.72rem;font-weight:700;letter-spacing:.04em;
+}
+.lang button{padding:6px 11px;transition:background .3s var(--ease),color .3s var(--ease);opacity:.7}
+.lang button.active{background:var(--terra-600);color:#fff;opacity:1}
+
+.cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--terra-600);color:#fff;font-weight:600;font-size:.86rem;
+  padding:11px 22px;border-radius:999px;letter-spacing:.01em;
+  box-shadow:0 8px 26px rgba(198,95,46,.4);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s var(--ease);
+  will-change:transform;
+}
+.cta:hover{transform:translateY(-3px);background:var(--terra-500);box-shadow:0 14px 34px rgba(198,95,46,.5)}
+.cta:active{transform:translateY(-1px)}
+.cta.ghost{background:rgba(246,241,231,.08);border:1px solid rgba(246,241,231,.3);box-shadow:none;color:var(--cream)}
+.cta.ghost:hover{background:rgba(246,241,231,.16)}
+
+.burger{display:none;flex-direction:column;gap:5px;width:26px;height:20px;justify-content:center}
+.burger span{height:2px;width:100%;background:var(--cream);border-radius:2px;transition:transform .4s var(--ease),opacity .3s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile menu panel */
+.mobile-menu{
+  position:fixed;inset:0;z-index:95;display:none;
+  flex-direction:column;justify-content:center;gap:26px;
+  padding:0 var(--pad);
+  background:rgba(15,30,21,.72);
+  backdrop-filter:blur(26px) saturate(1.4);
+  -webkit-backdrop-filter:blur(26px) saturate(1.4);
+  opacity:0;transition:opacity .4s var(--ease);
+}
+.mobile-menu.open{display:flex;opacity:1}
+.mobile-menu a.navlink{font-family:var(--serif);font-size:2rem;font-weight:400;letter-spacing:-.01em;opacity:.95}
+.mobile-menu a.navlink::after{display:none}
+.mobile-menu .cta{align-self:flex-start;font-size:1rem;padding:14px 28px;margin-top:10px}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:-8%;z-index:0;
+  background:url("assets/photos/01-hero-island.jpg") center/cover no-repeat;
+  will-change:transform;transform:scale(1.06);
+}
+.hero-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(180deg,rgba(18,36,26,.5) 0%,rgba(18,36,26,.12) 34%,rgba(18,36,26,.55) 78%,var(--green-950) 100%),
+    linear-gradient(90deg,rgba(18,36,26,.55) 0%,transparent 60%);
+}
+.hero .wrap{position:relative;z-index:3;padding-bottom:clamp(90px,14vh,150px);width:100%}
+.hero .eyebrow{color:var(--terra-400);margin-bottom:22px}
+.hero h1{
+  font-size:clamp(2.9rem,10vw,7.4rem);
+  font-weight:400;line-height:.98;letter-spacing:-.035em;
+  max-width:14ch;margin-bottom:24px;
+  text-shadow:0 4px 40px rgba(0,0,0,.4);
+}
+.hero-sub{
+  font-size:clamp(1.05rem,2.2vw,1.4rem);font-weight:400;opacity:.92;
+  max-width:34ch;line-height:1.45;margin-bottom:38px;
+  text-shadow:0 2px 20px rgba(0,0,0,.45);
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+.scroll-cue{
+  position:absolute;left:50%;bottom:26px;z-index:4;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;opacity:.72;
+}
+.scroll-cue .arrow{width:20px;height:20px;animation:bob 1.8s var(--ease) infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:1}}
+
+/* ============ SECTION 2 — NUMBERS + CALC ============ */
+.numbers{
+  position:relative;overflow:hidden;
+  padding:clamp(90px,13vh,150px) 0 clamp(90px,13vh,150px);
+  background:var(--green-950);
+}
+.numbers-bg{
+  position:absolute;inset:0;z-index:0;
+  background:url("assets/photos/02-coast-dusk.jpg") center/cover no-repeat;
+  opacity:.6;
+}
+.numbers-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(90deg,var(--green-950) 0%,rgba(18,36,26,.86) 42%,rgba(18,36,26,.55) 100%),
+    linear-gradient(180deg,var(--green-950) 0%,transparent 22%,transparent 74%,var(--green-950) 100%);
+}
+.numbers .wrap{position:relative;z-index:3}
+.sec-head{max-width:44ch;margin-bottom:clamp(46px,7vw,72px)}
+.sec-head .eyebrow{color:var(--terra-400);display:block;margin-bottom:16px}
+
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,40px);
+  margin-bottom:clamp(56px,8vw,90px);
+}
+.stat .num{
+  font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.9rem);font-weight:500;
+  color:var(--terra-500);line-height:1;letter-spacing:-.03em;
+}
+.stat .lbl{font-size:.9rem;opacity:.82;margin-top:12px;line-height:1.4;max-width:24ch}
+
+/* CALCULATOR */
+.calc{
+  background:rgba(31,66,48,.34);
+  border:1px solid rgba(232,160,106,.22);
+  border-radius:var(--r-xl);
+  backdrop-filter:blur(20px) saturate(1.3);
+  -webkit-backdrop-filter:blur(20px) saturate(1.3);
+  box-shadow:var(--shadow-md);
+  padding:clamp(24px,4vw,44px);
+  overflow:hidden;
+}
+.calc-top{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-bottom:30px}
+.calc-top h3{font-size:clamp(1.4rem,3vw,2rem);font-weight:500}
+.tabs{display:inline-flex;background:rgba(18,36,26,.5);border-radius:999px;padding:4px;border:1px solid rgba(246,241,231,.12)}
+.tab{padding:9px 18px;border-radius:999px;font-size:.82rem;font-weight:600;opacity:.7;transition:all .35s var(--ease);white-space:nowrap}
+.tab.active{background:var(--terra-600);color:#fff;opacity:1;box-shadow:0 6px 18px rgba(198,95,46,.35)}
+
+.calc-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(24px,4vw,50px);align-items:start}
+.controls{display:flex;flex-direction:column;gap:28px}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;font-size:.86rem;font-weight:600;margin-bottom:12px}
+.ctrl label .val{font-family:var(--serif);font-size:1.5rem;color:var(--terra-400);font-weight:500}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;
+  background:linear-gradient(90deg,var(--terra-500) 0%,var(--terra-500) var(--fill,50%),rgba(246,241,231,.16) var(--fill,50%));
+  cursor:pointer;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;
+  background:var(--cream);border:3px solid var(--terra-600);
+  box-shadow:0 4px 14px rgba(0,0,0,.35);transition:transform .2s var(--ease);
+}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.14)}
+input[type=range]::-moz-range-thumb{
+  width:22px;height:22px;border-radius:50%;background:var(--cream);
+  border:3px solid var(--terra-600);box-shadow:0 4px 14px rgba(0,0,0,.35);
+}
+
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.res-card{
+  background:rgba(18,36,26,.5);border:1px solid rgba(246,241,231,.1);
+  border-radius:var(--r-md);padding:18px 14px;text-align:center;
+  transition:transform .35s var(--ease),border-color .35s var(--ease);
+}
+.res-card:hover{transform:translateY(-4px)}
+.res-card.base{border-color:rgba(232,160,106,.45);background:rgba(198,95,46,.14)}
+.res-card .tag{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.75;margin-bottom:6px}
+.res-card.base .tag{color:var(--terra-400);opacity:1}
+.res-card .rate{font-size:.78rem;opacity:.7;margin-bottom:10px}
+.res-card .big{font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.7rem);font-weight:500;color:var(--cream);line-height:1.05;letter-spacing:-.02em}
+.res-card.base .big{color:var(--terra-400)}
+.res-card .small{font-size:.76rem;opacity:.72;margin-top:8px;line-height:1.35}
+.disclaimer{font-size:.74rem;opacity:.55;margin-top:26px;line-height:1.5;max-width:70ch}
+
+/* ============ SECTION 3 — WHY SUMBA ============ */
+.why-divider{
+  min-height:66vh;display:flex;align-items:center;overflow:hidden;
+}
+.why-divider-bg{
+  position:absolute;inset:0;z-index:0;
+  background:url("assets/photos/03-horses-beach.jpg") center/cover no-repeat;
+  will-change:transform;
+}
+.why-divider-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,var(--green-950) 0%,rgba(18,36,26,.35) 30%,rgba(18,36,26,.4) 70%,var(--sand-50) 100%);
+}
+.why-divider .wrap{position:relative;z-index:3;text-align:center;width:100%}
+.why-divider h2{
+  font-size:clamp(2.4rem,8vw,6rem);font-weight:400;letter-spacing:-.03em;
+  text-shadow:0 4px 40px rgba(0,0,0,.5);
+}
+
+.why-panel{
+  background:var(--sand-50);color:var(--ink);
+  padding:clamp(70px,10vw,120px) 0 clamp(80px,11vw,130px);
+}
+.why-panel .eyebrow{color:var(--terra-700)}
+.block-head{margin-bottom:clamp(34px,5vw,52px)}
+.block-head h3{font-size:clamp(1.7rem,4vw,2.8rem);color:var(--green-900);font-weight:500}
+.block-head .eyebrow{display:block;margin-bottom:14px}
+
+.trigger-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:clamp(70px,10vw,110px)}
+.trigger{
+  display:flex;gap:16px;align-items:flex-start;
+  background:#fff;border:1px solid rgba(18,36,26,.08);
+  border-radius:var(--r-md);padding:22px 24px;
+  box-shadow:var(--shadow-sm);
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.trigger:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(18,36,26,.14)}
+.trigger .ico{font-size:1.7rem;line-height:1;flex-shrink:0}
+.trigger p{font-size:.94rem;line-height:1.5;color:#33413a}
+.trigger p b{color:var(--green-900);font-weight:700}
+
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.project{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#fff,var(--sand-100));
+  border:1px solid rgba(168,72,31,.16);
+  border-radius:var(--r-lg);padding:28px 26px;
+  box-shadow:var(--shadow-sm);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.project::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--terra-500);
+  transform:scaleY(0);transform-origin:top;transition:transform .45s var(--ease);
+}
+.project:hover{transform:translateY(-6px);box-shadow:0 26px 56px rgba(18,36,26,.18)}
+.project:hover::before{transform:scaleY(1)}
+.project h4{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--green-900);margin-bottom:10px;letter-spacing:-.01em}
+.project .p-tags{font-size:.78rem;font-weight:600;color:var(--terra-700);letter-spacing:.02em;margin-bottom:12px;text-transform:uppercase}
+.project p.desc{font-size:.92rem;line-height:1.5;color:#3a463f}
+
+/* ============ SECTION 4 — MAP ============ */
+.map-sec{
+  background:radial-gradient(120% 100% at 50% 0%,var(--green-800) 0%,var(--green-950) 60%);
+  padding:clamp(80px,11vw,130px) 0 clamp(90px,12vw,140px);
+  overflow:hidden;
+}
+.map-sec .sec-head{margin:0 auto clamp(34px,5vw,54px);text-align:center;max-width:none}
+.map-sec .sec-head .eyebrow{color:var(--terra-400)}
+.map-hint{font-size:.82rem;opacity:.7;letter-spacing:.02em;margin-top:14px}
+
+.map-stage{
+  position:relative;max-width:1000px;margin:0 auto;
+  border-radius:var(--r-xl);overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  border:1px solid rgba(232,160,106,.16);
+  aspect-ratio:1672/941;
+}
+.map-stage img{width:100%;height:100%;object-fit:cover;display:block}
+.map-stage::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(110% 90% at 50% 45%,transparent 60%,rgba(10,20,14,.42) 100%);
+}
+
+.pin{
+  position:absolute;transform:translate(-50%,-50%);z-index:5;
+  display:flex;align-items:center;justify-content:center;
+}
+.pin.plot{cursor:pointer}
+.pin-dot{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--terra-500);border:2.5px solid var(--cream);
+  box-shadow:0 4px 14px rgba(0,0,0,.5);position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .3s var(--ease);
+}
+.pin.plot:hover .pin-dot{transform:scale(1.25)}
+.pin.plot::before{
+  content:"";position:absolute;width:20px;height:20px;border-radius:50%;
+  background:var(--terra-500);z-index:1;
+  animation:pulse 2.2s var(--ease) infinite;
+}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}70%,100%{transform:scale(3.4);opacity:0}}
+.pin.airport .pin-dot{
+  width:30px;height:30px;background:rgba(18,36,26,.6);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-color:rgba(246,241,231,.7);font-size:.8rem;color:var(--cream);
+}
+.pin.airport::before{display:none}
+.pin .pin-num{
+  position:absolute;font-size:.66rem;font-weight:700;color:#fff;z-index:3;
+  pointer-events:none;line-height:1;
+}
+
+.tooltip{
+  position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);
+  background:rgba(18,36,26,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(246,241,231,.16);
+  padding:7px 13px;border-radius:10px;font-size:.76rem;font-weight:600;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease);
+  box-shadow:var(--shadow-sm);z-index:10;
+}
+.tooltip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(18,36,26,.82)}
+.pin:hover .tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* PLOT PANEL (hub) */
+.plot-overlay{
+  position:fixed;inset:0;z-index:200;display:flex;justify-content:flex-end;
+  background:rgba(10,20,14,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s var(--ease);
+}
+.plot-overlay.open{opacity:1;visibility:visible}
+.plot-panel{
+  position:relative;
+  width:min(480px,100%);height:100%;overflow-y:auto;
+  background:linear-gradient(180deg,rgba(23,48,33,.96),rgba(18,36,26,.98));
+  backdrop-filter:blur(24px) saturate(1.3);-webkit-backdrop-filter:blur(24px) saturate(1.3);
+  border-left:1px solid rgba(232,160,106,.25);
+  box-shadow:var(--shadow-lg);
+  padding:clamp(26px,4vw,42px);
+  transform:translateX(40px);transition:transform .5s var(--ease);
+}
+.plot-overlay.open .plot-panel{transform:none}
+.panel-close{
+  position:absolute;top:22px;right:22px;width:42px;height:42px;border-radius:50%;
+  background:rgba(246,241,231,.1);border:1px solid rgba(246,241,231,.2);
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  transition:background .3s var(--ease),transform .3s var(--ease);z-index:5;
+}
+.panel-close:hover{background:rgba(246,241,231,.2);transform:rotate(90deg)}
+.panel-badge{
+  display:inline-block;background:var(--terra-600);color:#fff;font-size:.68rem;
+  letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  padding:6px 13px;border-radius:999px;margin-bottom:18px;
+}
+.plot-panel h3{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:500;margin-bottom:6px;letter-spacing:-.02em}
+.plot-loc{font-size:.92rem;opacity:.72;margin-bottom:24px}
+.plot-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.fact{background:rgba(18,36,26,.5);border:1px solid rgba(246,241,231,.1);border-radius:var(--r-sm);padding:14px 16px}
+.fact .k{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin-bottom:5px}
+.fact .v{font-family:var(--serif);font-size:1.25rem;font-weight:500;color:var(--terra-400)}
+.tenure{
+  background:rgba(53,107,72,.22);border:1px solid rgba(53,107,72,.5);
+  border-radius:var(--r-sm);padding:13px 16px;font-size:.84rem;margin-bottom:24px;
+  display:flex;gap:10px;align-items:flex-start;line-height:1.4;
+}
+.tenure .k{font-weight:700;color:var(--terra-400);flex-shrink:0}
+.plot-panel .cta{width:100%;justify-content:center;margin-bottom:24px}
+
+/* ACCORDION */
+.acc{border-top:1px solid rgba(246,241,231,.14)}
+.acc-item{border-bottom:1px solid rgba(246,241,231,.14)}
+.acc-head{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;
+  padding:16px 2px;text-align:left;font-weight:600;font-size:.98rem;
+}
+.acc-head .plus{font-size:1.4rem;transition:transform .4s var(--ease);color:var(--terra-500);flex-shrink:0}
+.acc-item.open .acc-head .plus{transform:rotate(45deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.acc-body-inner{padding:0 2px 18px;font-size:.9rem;line-height:1.6;opacity:.85}
+.acc-body-inner ol{padding-left:20px;list-style:decimal}
+.acc-body-inner ol li{margin-bottom:8px}
+.acc-body-inner .qa{margin-bottom:16px}
+.acc-body-inner .qa:last-child{margin-bottom:0}
+.acc-body-inner .qa .q{display:block;font-weight:700;color:var(--terra-400);margin-bottom:4px}
+
+/* ============ SECTION 5 — CONTACT ============ */
+.contact{
+  position:relative;overflow:hidden;
+  min-height:92vh;display:flex;align-items:center;
+  padding:clamp(90px,13vw,150px) 0 clamp(40px,8vw,80px);
+}
+.contact-bg{
+  position:absolute;inset:0;z-index:0;
+  background:url("assets/photos/05-beach-sunset.jpg") center/cover no-repeat;
+}
+.contact-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(180deg,var(--green-950) 0%,rgba(18,36,26,.28) 24%,rgba(18,36,26,.35) 55%,rgba(18,36,26,.72) 100%),
+    linear-gradient(90deg,rgba(18,36,26,.5) 0%,transparent 55%);
+}
+.contact .wrap{position:relative;z-index:3;width:100%}
+.contact .eyebrow{color:var(--terra-400);margin-bottom:18px;display:block}
+.contact h2{font-size:clamp(2.4rem,7vw,5rem);font-weight:400;letter-spacing:-.03em;max-width:16ch;margin-bottom:20px;text-shadow:0 3px 30px rgba(0,0,0,.4)}
+.contact-lead{font-size:clamp(1rem,2vw,1.25rem);opacity:.9;max-width:40ch;margin-bottom:36px;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+.contact-card{
+  background:rgba(23,48,33,.5);
+  border:1px solid rgba(232,160,106,.28);
+  border-radius:var(--r-xl);
+  backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);
+  box-shadow:var(--shadow-md);
+  padding:clamp(24px,4vw,38px);max-width:560px;
+}
+.contact-methods{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.method{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(246,241,231,.08);border:1px solid rgba(246,241,231,.2);
+  padding:13px 20px;border-radius:999px;font-weight:600;font-size:.9rem;
+  transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease);
+}
+.method:hover{transform:translateY(-3px);background:rgba(232,160,106,.16);border-color:rgba(232,160,106,.5)}
+.method .ico{font-size:1.1rem}
+.method.primary{background:var(--terra-600);border-color:transparent;box-shadow:0 8px 24px rgba(198,95,46,.35)}
+.method.primary:hover{background:var(--terra-500)}
+.card-note{font-size:.76rem;opacity:.6;line-height:1.5}
+
+/* FOOTER */
+.footer{
+  background:var(--green-950);border-top:1px solid rgba(246,241,231,.1);
+  padding:38px 0;
+}
+.footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.footer .fbrand{font-family:var(--serif);font-size:1.05rem;letter-spacing:.1em;opacity:.9}
+.footer .fbrand b{color:var(--terra-500);font-weight:500}
+.footer .flegal{font-size:.74rem;opacity:.5;max-width:52ch;line-height:1.5}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1000px){
+  .calc-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr);gap:32px 24px}
+}
+@media (max-width:760px){
+  .nav-links .navlink{display:none}
+  .nav-links .lang{display:none}
+  .nav-links .cta{display:none}
+  .burger{display:flex}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .results{grid-template-columns:1fr}
+  .res-card{display:flex;align-items:center;justify-content:space-between;text-align:left;padding:16px 20px;gap:14px;flex-wrap:wrap}
+  .res-card .small{margin-top:0}
+  .plot-overlay{justify-content:center}
+  .plot-panel{width:100%;border-left:none;transform:translateY(40px)}
+}
+@media (max-width:440px){
+  .stats{grid-template-columns:1fr;gap:26px}
+  .plot-facts{grid-template-columns:1fr}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.001s!important}
+  .reveal{opacity:1;transform:none}
+  .hero-bg{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#hero" class="brand">TANA <b>SUMBA</b></a>
+  <div class="nav-links">
+    <a href="#numbers" class="navlink" data-i18n="nav_invest">Invest</a>
+    <a href="#why" class="navlink" data-i18n="nav_why">Why Sumba</a>
+    <a href="#map" class="navlink" data-i18n="nav_map">Map</a>
+    <a href="#contact" class="navlink" data-i18n="nav_contact">Contact</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="ru">RU</button>
+    </div>
+    <a href="#contact" class="cta" data-i18n="nav_cta">Enquire</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#numbers" class="navlink" data-i18n="nav_invest">Invest</a>
+  <a href="#why" class="navlink" data-i18n="nav_why">Why Sumba</a>
+  <a href="#map" class="navlink" data-i18n="nav_map">Map</a>
+  <a href="#contact" class="navlink" data-i18n="nav_contact">Contact</a>
+  <div class="lang" role="group" aria-label="Language" style="align-self:flex-start">
+    <button data-lang="en" class="active">EN</button>
+    <button data-lang="ru">RU</button>
+  </div>
+  <a href="#contact" class="cta" data-i18n="nav_cta">Enquire</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero photo-overlay" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap">
+    <p class="eyebrow reveal" data-i18n="hero_eyebrow">East Nusa Tenggara · Indonesia</p>
+    <h1 class="reveal" data-delay="1" data-i18n="hero_title">Own a piece of Sumba.</h1>
+    <p class="hero-sub reveal" data-delay="2" data-i18n="hero_sub">The island the world just discovered — before the world arrives.</p>
+    <div class="hero-actions reveal" data-delay="3">
+      <a href="#map" class="cta" data-i18n="hero_cta">Explore the island</a>
+    </div>
+  </div>
+  <a href="#numbers" class="scroll-cue" aria-label="Scroll down">
+    <span data-i18n="hero_scroll">Scroll</span>
+    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+  </a>
+</header>
+
+<!-- ============ SECTION 2 — NUMBERS + CALC ============ -->
+<section class="numbers photo-overlay" id="numbers">
+  <div class="numbers-bg"></div>
+  <div class="numbers-scrim"></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal" data-i18n="num_eyebrow">The opportunity</span>
+      <h2 class="section-title reveal" data-delay="1" data-i18n="num_title">The numbers, before everyone else sees them</h2>
+    </div>
+
+    <div class="stats">
+      <div class="stat reveal" data-delay="1">
+        <div class="num"><span class="counter" data-to="100" data-prefix="25–" data-suffix="×">25–100×</span></div>
+        <div class="lbl" data-i18n="stat1">cheaper than Bali — entry $14–25/m² vs $300–1500/m²</div>
+      </div>
+      <div class="stat reveal" data-delay="2">
+        <div class="num"><span class="counter" data-to="6000" data-prefix="from $" data-sep="1">from $6,000</span></div>
+        <div class="lbl" data-i18n="stat2">entry ticket — a 1,000 m² plot</div>
+      </div>
+      <div class="stat reveal" data-delay="3">
+        <div class="num"><span class="counter" data-to="8" data-prefix="7–">7–8</span></div>
+        <div class="lbl" data-i18n="stat3">developer projects already building</div>
+      </div>
+      <div class="stat reveal" data-delay="4">
+        <div class="num" data-i18n="stat4_num">Jan 2026</div>
+        <div class="lbl" data-i18n="stat4">daily direct flight from Bali</div>
+      </div>
+    </div>
+
+    <!-- CALCULATOR -->
+    <div class="calc reveal" data-delay="1">
+      <div class="calc-top">
+        <h3 data-i18n="calc_title">Model your return</h3>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-mode="A" data-i18n="calc_tabA">Buy land → resell</button>
+          <button class="tab" data-mode="B" data-i18n="calc_tabB">Build villas → rent</button>
+        </div>
+      </div>
+
+      <div class="calc-grid">
+        <div class="controls">
+          <!-- MODE A controls -->
+          <div class="ctrl mode-a">
+            <label><span data-i18n="calc_a_amount">Investment amount</span><span class="val" id="aAmountVal">$100,000</span></label>
+            <input type="range" id="aAmount" min="6000" max="500000" step="1000" value="100000" aria-label="Investment amount">
+          </div>
+          <div class="ctrl mode-a">
+            <label><span data-i18n="calc_a_hold">Hold period</span><span class="val" id="aYearsVal">5 yrs</span></label>
+            <input type="range" id="aYears" min="1" max="10" step="1" value="5" aria-label="Hold period">
+          </div>
+          <!-- MODE B controls -->
+          <div class="ctrl mode-b" style="display:none">
+            <label><span data-i18n="calc_b_amount">Total investment</span><span class="val" id="bAmountVal">$615,000</span></label>
+            <input type="range" id="bAmount" min="150000" max="1500000" step="5000" value="615000" aria-label="Total investment">
+          </div>
+        </div>
+
+        <div class="results" id="results"><!-- injected --></div>
+      </div>
+
+      <p class="disclaimer" id="disclaimer" data-i18n="calc_disc">Illustrative scenario, not a guarantee. Growth rates 7/15/25% p.a. benchmarked against comparable markets (Lombok, Bali).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 — WHY SUMBA ============ -->
+<section class="why-divider photo-overlay" id="why">
+  <div class="why-divider-bg" id="whyBg"></div>
+  <div class="why-divider-scrim"></div>
+  <div class="wrap">
+    <h2 class="reveal" data-i18n="why_title">Why Sumba. Why now.</h2>
+  </div>
+</section>
+
+<div class="why-panel">
+  <div class="wrap">
+    <!-- Why now -->
+    <div class="block-head">
+      <span class="eyebrow reveal" data-i18n="why_now_eyebrow">Momentum</span>
+      <h3 class="reveal" data-delay="1" data-i18n="why_now_title">Why now — the triggers are lining up</h3>
+    </div>
+    <div class="trigger-list">
+      <div class="trigger reveal" data-delay="1"><span class="ico">✈️</span><p data-i18n="trig1">Daily <b>direct flight Bali → Tambolaka</b> since 9 Jan 2026 (Batik Air).</p></div>
+      <div class="trigger reveal" data-delay="2"><span class="ico">🏆</span><p data-i18n="trig2">Time Out “Best in Asia 2025” + NYT 2025 + Michelin Keys (NIHI 3, Cap Karoso 1).</p></div>
+      <div class="trigger reveal" data-delay="3"><span class="ico">📊</span><p data-i18n="trig3">Indonesia <b>15.4M tourists in 2025</b> (+10.8%); Bali 6.95M (+9.7%).</p></div>
+      <div class="trigger reveal" data-delay="4"><span class="ico">🇷🇺</span><p data-i18n="trig4">Russian arrivals <b>+30% in 2025</b> — a top-15 priority market.</p></div>
+      <div class="trigger reveal" data-delay="5"><span class="ico">🛂</span><p data-i18n="trig5"><b>Golden Visa</b> (from $350k) & Second Home Visa (deposit $130k).</p></div>
+    </div>
+
+    <!-- Smart money -->
+    <div class="block-head">
+      <span class="eyebrow reveal" data-i18n="smart_eyebrow">Smart money already here</span>
+      <h3 class="reveal" data-delay="1" data-i18n="smart_title">You'll be in good company</h3>
+    </div>
+    <div class="projects">
+      <div class="project reveal" data-delay="1">
+        <h4>NIHI Sumba</h4>
+        <div class="p-tags" data-i18n="proj1_tag">Iconic resort</div>
+        <p class="desc" data-i18n="proj1">Top-10 hotel in the world · 3 Michelin Keys · $30–35M invested by Chris Burch.</p>
+      </div>
+      <div class="project reveal" data-delay="2">
+        <h4>Cap Karoso</h4>
+        <div class="p-tags" data-i18n="proj2_tag">French resort</div>
+        <p class="desc" data-i18n="proj2">1 Michelin Key · design villas from $400k.</p>
+      </div>
+      <div class="project reveal" data-delay="3">
+        <h4>Arya Sumba</h4>
+        <div class="p-tags" data-i18n="proj3_tag">Villa community</div>
+        <p class="desc" data-i18n="proj3">12 ha · target 180 villas · from $95k.</p>
+      </div>
+      <div class="project reveal" data-delay="4">
+        <h4>Kabisu</h4>
+        <div class="p-tags" data-i18n="proj4_tag">Boutique</div>
+        <p class="desc" data-i18n="proj4">10 villas · only 1 left.</p>
+      </div>
+      <div class="project reveal" data-delay="5">
+        <h4>Oasis</h4>
+        <div class="p-tags" data-i18n="proj5_tag">Rua Beach</div>
+        <p class="desc" data-i18n="proj5">~40–50 villas · $200–475k.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SECTION 4 — MAP ============ -->
+<section class="map-sec" id="map">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal" data-i18n="map_eyebrow">Interactive map</span>
+      <h2 class="section-title reveal" data-delay="1" data-i18n="map_title">Choose your piece of the island</h2>
+      <p class="map-hint reveal" data-delay="2" data-i18n="map_hint">Tap a pin to explore</p>
+    </div>
+    <div class="map-stage reveal" data-delay="1" id="mapStage">
+      <img src="assets/photos/04-island-map.jpg" alt="3D map of Sumba island with available plots">
+      <!-- pins injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- PLOT PANEL -->
+<div class="plot-overlay" id="plotOverlay">
+  <aside class="plot-panel" id="plotPanel" role="dialog" aria-modal="true" aria-labelledby="plotName">
+    <button class="panel-close" id="panelClose" aria-label="Close">✕</button>
+    <span class="panel-badge" id="plotBadge">Beachfront</span>
+    <h3 id="plotName">—</h3>
+    <p class="plot-loc" id="plotLoc">—</p>
+    <div class="plot-facts">
+      <div class="fact"><div class="k" data-i18n="pf_area">Area</div><div class="v" id="plotArea">—</div></div>
+      <div class="fact"><div class="k" data-i18n="pf_price">Price</div><div class="v" id="plotPrice">—</div></div>
+    </div>
+    <div class="tenure">
+      <span class="k" data-i18n="pf_tenure_k">Tenure</span>
+      <span id="plotTenure" data-i18n="pf_tenure_v">Leasehold / Hak Pakai (25–30 yrs, renewable)</span>
+    </div>
+    <a href="#contact" class="cta" id="plotEnquire" data-i18n="pf_enquire">Enquire about this plot</a>
+
+    <div class="acc">
+      <div class="acc-item">
+        <button class="acc-head"><span data-i18n="acc_how">How to buy</span><span class="plus">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">
+          <ol>
+            <li data-i18n="how1">Choose your plot.</li>
+            <li data-i18n="how2">Due diligence & notary (PPAT).</li>
+            <li data-i18n="how3">Sign lease / Hak Pakai agreement.</li>
+            <li data-i18n="how4">Payment via escrow.</li>
+            <li data-i18n="how5">Certificate handover.</li>
+          </ol>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><span data-i18n="acc_faq">FAQ</span><span class="plus">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">
+          <div class="qa"><span class="q" data-i18n="faq1q">Can foreigners own land?</span><span data-i18n="faq1a">Not freehold — but foreigners hold land securely via long-term leasehold or Hak Pakai (right of use), fully legal and renewable.</span></div>
+          <div class="qa"><span class="q" data-i18n="faq2q">What taxes apply?</span><span data-i18n="faq2a">A one-time acquisition duty (~5%) and modest annual land tax. We connect you with a local notary for exact figures.</span></div>
+          <div class="qa"><span class="q" data-i18n="faq3q">How long is the lease?</span><span data-i18n="faq3a">Typically 25–30 years, extendable — structures for longer horizons are available.</span></div>
+          <div class="qa"><span class="q" data-i18n="faq4q">Can I build?</span><span data-i18n="faq4a">Yes. Most plots are build-ready for villas, subject to local permits we help arrange.</span></div>
+        </div></div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ============ SECTION 5 — CONTACT ============ -->
+<section class="contact photo-overlay" id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal" data-i18n="contact_eyebrow">Get in touch</span>
+    <h2 class="reveal" data-delay="1" data-i18n="contact_title">Let's find your land</h2>
+    <p class="contact-lead reveal" data-delay="2" data-i18n="contact_lead">Tell us what you're looking for — we'll send matching plots.</p>
+    <div class="contact-card reveal" data-delay="3">
+      <div class="contact-methods">
+        <a href="#" class="method primary" data-placeholder="whatsapp"><span class="ico">💬</span> WhatsApp</a>
+        <a href="#" class="method" data-placeholder="email"><span class="ico">✉️</span> Email</a>
+        <a href="#" class="method" data-placeholder="instagram"><span class="ico">📷</span> Instagram</a>
+      </div>
+      <p class="card-note" data-i18n="contact_note">Land offered as leasehold / Hak Pakai (25–30 yrs, renewable). Figures shown are illustrative, not investment advice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="fbrand">TANA <b>SUMBA</b> © 2026 · <span data-i18n="footer_loc">East Nusa Tenggara, Indonesia</span></div>
+    <div class="flegal" data-i18n="footer_legal">Land offered as leasehold / Hak Pakai. Figures are illustrative, not investment advice.</div>
+  </div>
+</footer>
+
+<script>
+"use strict";
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ============ I18N ============ */
+const I18N = {
+  en:{
+    nav_invest:"Invest", nav_why:"Why Sumba", nav_map:"Map", nav_contact:"Contact", nav_cta:"Enquire",
+    hero_eyebrow:"East Nusa Tenggara · Indonesia",
+    hero_title:"Own a piece of Sumba.",
+    hero_sub:"The island the world just discovered — before the world arrives.",
+    hero_cta:"Explore the island", hero_scroll:"Scroll",
+    num_eyebrow:"The opportunity",
+    num_title:"The numbers, before everyone else sees them",
+    stat1:"cheaper than Bali — entry $14–25/m² vs $300–1500/m²",
+    stat2:"entry ticket — a 1,000 m² plot",
+    stat3:"developer projects already building",
+    stat4_num:"Jan 2026", stat4:"daily direct flight from Bali",
+    calc_title:"Model your return",
+    calc_tabA:"Buy land → resell", calc_tabB:"Build villas → rent",
+    calc_a_amount:"Investment amount", calc_a_hold:"Hold period",
+    calc_b_amount:"Total investment",
+    calc_disc:"Illustrative scenario, not a guarantee. Growth rates 7/15/25% p.a. benchmarked against comparable markets (Lombok, Bali).",
+    res_cons:"Conservative", res_base:"Base", res_bold:"Bold",
+    res_profit:"Profit",
+    res_net:"Net income / year", res_payback:"Payback",
+    yrs:"yrs", payback_yrs:"~{n} years",
+    why_title:"Why Sumba. Why now.",
+    why_now_eyebrow:"Momentum", why_now_title:"Why now — the triggers are lining up",
+    trig1:'Daily <b>direct flight Bali → Tambolaka</b> since 9 Jan 2026 (Batik Air).',
+    trig2:'Time Out “Best in Asia 2025” + NYT 2025 + Michelin Keys (NIHI 3, Cap Karoso 1).',
+    trig3:'Indonesia <b>15.4M tourists in 2025</b> (+10.8%); Bali 6.95M (+9.7%).',
+    trig4:'Russian arrivals <b>+30% in 2025</b> — a top-15 priority market.',
+    trig5:'<b>Golden Visa</b> (from $350k) & Second Home Visa (deposit $130k).',
+    smart_eyebrow:"Smart money already here", smart_title:"You'll be in good company",
+    proj1_tag:"Iconic resort", proj1:"Top-10 hotel in the world · 3 Michelin Keys · $30–35M invested by Chris Burch.",
+    proj2_tag:"French resort", proj2:"1 Michelin Key · design villas from $400k.",
+    proj3_tag:"Villa community", proj3:"12 ha · target 180 villas · from $95k.",
+    proj4_tag:"Boutique", proj4:"10 villas · only 1 left.",
+    proj5_tag:"Rua Beach", proj5:"~40–50 villas · $200–475k.",
+    map_eyebrow:"Interactive map", map_title:"Choose your piece of the island", map_hint:"Tap a pin to explore",
+    pf_area:"Area", pf_price:"Price", pf_tenure_k:"Tenure",
+    pf_tenure_v:"Leasehold / Hak Pakai (25–30 yrs, renewable)",
+    pf_enquire:"Enquire about this plot",
+    acc_how:"How to buy", acc_faq:"FAQ",
+    how1:"Choose your plot.", how2:"Due diligence & notary (PPAT).",
+    how3:"Sign lease / Hak Pakai agreement.", how4:"Payment via escrow.", how5:"Certificate handover.",
+    faq1q:"Can foreigners own land?",
+    faq1a:"Not freehold — but foreigners hold land securely via long-term leasehold or Hak Pakai (right of use), fully legal and renewable.",
+    faq2q:"What taxes apply?",
+    faq2a:"A one-time acquisition duty (~5%) and modest annual land tax. We connect you with a local notary for exact figures.",
+    faq3q:"How long is the lease?",
+    faq3a:"Typically 25–30 years, extendable — structures for longer horizons are available.",
+    faq4q:"Can I build?",
+    faq4a:"Yes. Most plots are build-ready for villas, subject to local permits we help arrange.",
+    contact_eyebrow:"Get in touch", contact_title:"Let's find your land",
+    contact_lead:"Tell us what you're looking for — we'll send matching plots.",
+    contact_note:"Land offered as leasehold / Hak Pakai (25–30 yrs, renewable). Figures shown are illustrative, not investment advice.",
+    footer_loc:"East Nusa Tenggara, Indonesia",
+    footer_legal:"Land offered as leasehold / Hak Pakai. Figures are illustrative, not investment advice.",
+    badge_Beachfront:"Beachfront", "badge_Ocean View":"Ocean View", badge_Hilltop:"Hilltop", badge_Roadside:"Roadside"
+  },
+  ru:{
+    nav_invest:"Инвестиции", nav_why:"Почему Сумба", nav_map:"Карта", nav_contact:"Контакты", nav_cta:"Связаться",
+    hero_eyebrow:"Восточная Нуса-Тенггара · Индонезия",
+    hero_title:"Твой участок на Сумбе.",
+    hero_sub:"Остров, который мир только что открыл — успей до того, как приедут все.",
+    hero_cta:"Исследовать остров", hero_scroll:"Листай",
+    num_eyebrow:"Возможность",
+    num_title:"Цифры — пока их не увидели все",
+    stat1:"дешевле Бали — вход $14–25/м² против $300–1500/м²",
+    stat2:"порог входа — участок 1 000 м²",
+    stat3:"девелоперских проектов уже строятся",
+    stat4_num:"Янв 2026", stat4:"ежедневный прямой рейс с Бали",
+    calc_title:"Рассчитай доходность",
+    calc_tabA:"Купил землю → продал", calc_tabB:"Построил виллы → сдаёшь",
+    calc_a_amount:"Сумма инвестиций", calc_a_hold:"Срок владения",
+    calc_b_amount:"Общая сумма вложений",
+    calc_disc:"Ориентировочный сценарий, не гарантия. Ставки роста 7/15/25% годовых основаны на сопоставимых рынках (Ломбок, Бали).",
+    res_cons:"Консерв.", res_base:"База", res_bold:"Смелый",
+    res_profit:"Прибыль",
+    res_net:"Чистый доход / год", res_payback:"Окупаемость",
+    yrs:"лет", payback_yrs:"~{n} лет",
+    why_title:"Почему Сумба. Почему сейчас.",
+    why_now_eyebrow:"Импульс", why_now_title:"Почему сейчас — триггеры сходятся",
+    trig1:'Ежедневный <b>прямой рейс Бали → Тамболака</b> с 9 янв 2026 (Batik Air).',
+    trig2:'Time Out «Лучшее в Азии 2025» + NYT 2025 + Michelin Keys (NIHI 3, Cap Karoso 1).',
+    trig3:'Индонезия <b>15,4 млн туристов в 2025</b> (+10,8%); Бали 6,95 млн (+9,7%).',
+    trig4:'Поток из России <b>+30% в 2025</b> — рынок топ-15 по приоритету.',
+    trig5:'<b>Golden Visa</b> (от $350k) и Second Home Visa (депозит $130k).',
+    smart_eyebrow:"Умные деньги уже здесь", smart_title:"Ты будешь в сильной компании",
+    proj1_tag:"Легендарный курорт", proj1:"Топ-10 отелей мира · 3 Michelin Keys · $30–35 млн вложил Крис Бёрч.",
+    proj2_tag:"Французский курорт", proj2:"1 Michelin Key · дизайнерские виллы от $400k.",
+    proj3_tag:"Вилловый посёлок", proj3:"12 га · цель 180 вилл · от $95k.",
+    proj4_tag:"Бутик", proj4:"10 вилл · осталась 1.",
+    proj5_tag:"Пляж Руа", proj5:"~40–50 вилл · $200–475k.",
+    map_eyebrow:"Интерактивная карта", map_title:"Выбери свой участок острова", map_hint:"Нажми на точку",
+    pf_area:"Площадь", pf_price:"Цена", pf_tenure_k:"Право",
+    pf_tenure_v:"Лизхолд / Hak Pakai (25–30 лет, продлеваемо)",
+    pf_enquire:"Узнать об участке",
+    acc_how:"Как купить", acc_faq:"Вопросы",
+    how1:"Выбери участок.", how2:"Проверка и нотариус (PPAT).",
+    how3:"Подписание лизхолда / Hak Pakai.", how4:"Оплата через эскроу.", how5:"Передача сертификата.",
+    faq1q:"Могут ли иностранцы владеть землёй?",
+    faq1a:"Не freehold — но иностранцы надёжно владеют через долгосрочный лизхолд или Hak Pakai (право пользования), полностью легально и с продлением.",
+    faq2q:"Какие налоги?",
+    faq2a:"Разовая пошлина при покупке (~5%) и небольшой ежегодный земельный налог. Сведём с местным нотариусом для точных цифр.",
+    faq3q:"На какой срок лизхолд?",
+    faq3a:"Обычно 25–30 лет с продлением — есть структуры и для более длинного горизонта.",
+    faq4q:"Можно ли строить?",
+    faq4a:"Да. Большинство участков готовы под застройку вилл, с местными разрешениями поможем.",
+    contact_eyebrow:"Свяжись с нами", contact_title:"Давай найдём твою землю",
+    contact_lead:"Расскажи, что ищешь — пришлём подходящие участки.",
+    contact_note:"Земля предлагается как лизхолд / Hak Pakai (25–30 лет, продлеваемо). Приведённые цифры ориентировочны, не инвест-совет.",
+    footer_loc:"Восточная Нуса-Тенггара, Индонезия",
+    footer_legal:"Земля предлагается как лизхолд / Hak Pakai. Цифры ориентировочны, не являются инвест-советом.",
+    badge_Beachfront:"Первая линия", "badge_Ocean View":"Вид на океан", badge_Hilltop:"Холм", badge_Roadside:"У дороги"
+  }
+};
+
+/* ============ LOCATIONS ============ */
+const LOCATIONS = [
+  {type:"airport", name:"Tambolaka Airport", x:19, y:30},
+  {type:"airport", name:"Waingapu Airport", x:83, y:41},
+  {type:"plot", n:1, name:"Kerewe Beachfront",  loc:"Kodi, SW",        badge:"Beachfront", area:"5,000 m²", price:"~$195,000", x:12, y:63},
+  {type:"plot", n:2, name:"Waikelo Bay View",   loc:"Waikelo, W",      badge:"Ocean View", area:"3,000 m²", price:"~$92,000",  x:25, y:39},
+  {type:"plot", n:3, name:"Tarimbang Hilltop",  loc:"East Sumba",      badge:"Hilltop",    area:"8,000 m²", price:"~$128,000", x:67, y:57},
+  {type:"plot", n:4, name:"Mananga Aba",        loc:"near Nihi, SW",   badge:"Beachfront", area:"6,500 m²", price:"~$245,000", x:31, y:70},
+  {type:"plot", n:5, name:"Tambolaka Gateway",  loc:"Tambolaka, NW",   badge:"Roadside",   area:"2,000 m²", price:"~$52,000",  x:21, y:26},
+  {type:"plot", n:6, name:"Waikuri Lagoon",     loc:"Kodi, SW",        badge:"Ocean View", area:"4,000 m²", price:"~$116,000", x:10, y:50}
+];
+
+/* ============ STATE ============ */
+let lang = localStorage.getItem('ts_lang') || 'en';
+
+/* ============ I18N HELPERS ============ */
+function t(k){
+  const v = I18N[lang][k];
+  return v!==undefined ? v : (I18N.en[k]!==undefined ? I18N.en[k] : k);
+}
+function applyI18n(){
+  const dict = I18N[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(dict[k]!==undefined){
+      if(dict[k].indexOf('<')>=0) el.innerHTML = dict[k];
+      else el.textContent = dict[k];
+    }
+  });
+  document.querySelectorAll('.lang button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang===lang);
+  });
+  renderCalc();
+  refreshOpenPanel();
+}
+
+/* ============ LANG SWITCH ============ */
+document.querySelectorAll('.lang button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    lang = b.dataset.lang;
+    localStorage.setItem('ts_lang', lang);
+    applyI18n();
+  });
+});
+
+/* ============ NAV scroll + mobile ============ */
+const nav = document.getElementById('nav');
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+function toggleMenu(force){
+  const open = force!==undefined ? force : !mobileMenu.classList.contains('open');
+  mobileMenu.classList.toggle('open', open);
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+burger.addEventListener('click', ()=>toggleMenu());
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>toggleMenu(false)));
+
+/* ============ REVEAL ============ */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:0.15, rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll('.reveal').forEach(el=>{
+  if(REDUCED) el.classList.add('in'); else io.observe(el);
+});
+
+/* ============ COUNTERS ============ */
+function fmt(n){ return n.toLocaleString('en-US'); }
+function animateCounter(el){
+  const to = parseFloat(el.dataset.to);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const sep = el.dataset.sep === '1';
+  if(REDUCED){ el.textContent = prefix + (sep?fmt(to):to) + suffix; return; }
+  const dur = 1400, start = performance.now();
+  function step(now){
+    const p = Math.min(1,(now-start)/dur);
+    const eased = 1-Math.pow(1-p,3);
+    const cur = Math.round(to*eased);
+    el.textContent = prefix + (sep?fmt(cur):cur) + suffix;
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counterIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ animateCounter(e.target); counterIO.unobserve(e.target);} });
+},{threshold:0.6});
+document.querySelectorAll('.counter').forEach(el=>counterIO.observe(el));
+
+/* ============ CALCULATOR ============ */
+let calcMode = 'A';
+const RATES_A = [{key:'res_cons', r:0.07}, {key:'res_base', r:0.15, base:true}, {key:'res_bold', r:0.25}];
+const YIELDS_B = [{key:'res_cons', y:0.072}, {key:'res_base', y:0.143, base:true}, {key:'res_bold', y:0.254}];
+
+const els = {
+  aAmount:document.getElementById('aAmount'), aAmountVal:document.getElementById('aAmountVal'),
+  aYears:document.getElementById('aYears'), aYearsVal:document.getElementById('aYearsVal'),
+  bAmount:document.getElementById('bAmount'), bAmountVal:document.getElementById('bAmountVal'),
+  results:document.getElementById('results')
+};
+
+function setFill(input){
+  const min=+input.min, max=+input.max, v=+input.value;
+  const pct = ((v-min)/(max-min))*100;
+  input.style.setProperty('--fill', pct+'%');
+}
+
+const prevVals = {};
+function animNumber(node, target, id){
+  const from = prevVals[id];
+  prevVals[id] = target;
+  if(REDUCED || from===undefined || from===target){ node.textContent = '$'+fmt(target); return; }
+  const dur=500, start=performance.now();
+  function step(now){
+    const p=Math.min(1,(now-start)/dur); const eased=1-Math.pow(1-p,3);
+    node.textContent = '$'+fmt(Math.round(from+(target-from)*eased));
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function renderCalc(){
+  if(!els.results) return;
+  els.aAmountVal.textContent = '$'+fmt(+els.aAmount.value);
+  els.aYearsVal.textContent = els.aYears.value + ' ' + t('yrs');
+  els.bAmountVal.textContent = '$'+fmt(+els.bAmount.value);
+  setFill(els.aAmount); setFill(els.aYears); setFill(els.bAmount);
+
+  let html = '';
+  if(calcMode==='A'){
+    const amount = +els.aAmount.value, years = +els.aYears.value;
+    RATES_A.forEach((s,i)=>{
+      const future = Math.round(amount*Math.pow(1+s.r, years));
+      const profit = future - amount;
+      html += `<div class="res-card ${s.base?'base':''}">
+        <div class="tag">${t(s.key)}</div>
+        <div class="rate">${(s.r*100).toFixed(0)}% / ${t('yrs')}</div>
+        <div class="big" id="rc${i}-a" data-v="${future}"></div>
+        <div class="small">${t('res_profit')}: <span id="rc${i}-p" data-v="${profit}"></span></div>
+      </div>`;
+    });
+  } else {
+    const amount = +els.bAmount.value;
+    YIELDS_B.forEach((s,i)=>{
+      const netYear = Math.round(amount*s.y);
+      const payback = Math.round(1/s.y);
+      html += `<div class="res-card ${s.base?'base':''}">
+        <div class="tag">${t(s.key)}</div>
+        <div class="rate">${(s.y*100).toFixed(1)}% / ${t('yrs')}</div>
+        <div class="big" id="rc${i}-a" data-v="${netYear}"></div>
+        <div class="small">${t('res_net')}<br>${t('res_payback')}: ${t('payback_yrs').replace('{n}',payback)}</div>
+      </div>`;
+    });
+  }
+  els.results.innerHTML = html;
+  els.results.querySelectorAll('.big').forEach(node=>{
+    animNumber(node, +node.dataset.v, node.id);
+  });
+  els.results.querySelectorAll('.small span[data-v]').forEach(node=>{
+    animNumber(node, +node.dataset.v, node.id);
+  });
+}
+
+[els.aAmount, els.aYears, els.bAmount].forEach(inp=>{
+  inp.addEventListener('input', renderCalc);
+});
+
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    calcMode = tab.dataset.mode;
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.mode-a').forEach(el=>el.style.display = calcMode==='A'?'':'none');
+    document.querySelectorAll('.mode-b').forEach(el=>el.style.display = calcMode==='B'?'':'none');
+    for(const k in prevVals) delete prevVals[k];
+    renderCalc();
+  });
+});
+
+/* ============ MAP PINS ============ */
+const mapStage = document.getElementById('mapStage');
+LOCATIONS.forEach(loc=>{
+  const pin = document.createElement('div');
+  pin.className = 'pin ' + loc.type;
+  pin.style.left = loc.x + '%';
+  pin.style.top = loc.y + '%';
+  const label = loc.type==='airport' ? '✈' : '';
+  pin.innerHTML = `<div class="pin-dot">${label}</div>` +
+    (loc.type==='plot' ? `<span class="pin-num">${loc.n}</span>` : '') +
+    `<span class="tooltip"></span>`;
+  pin.querySelector('.tooltip').textContent = loc.name;
+  if(loc.type==='plot'){
+    pin.setAttribute('role','button');
+    pin.setAttribute('tabindex','0');
+    pin.setAttribute('aria-label', loc.name);
+    pin.addEventListener('click', ()=>openPlot(loc));
+    pin.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();openPlot(loc);} });
+  }
+  mapStage.appendChild(pin);
+});
+
+/* ============ PLOT PANEL ============ */
+const plotOverlay = document.getElementById('plotOverlay');
+let currentPlot = null;
+function openPlot(loc){
+  currentPlot = loc;
+  document.getElementById('plotName').textContent = loc.name;
+  document.getElementById('plotLoc').textContent = loc.loc;
+  document.getElementById('plotArea').textContent = loc.area;
+  document.getElementById('plotPrice').textContent = loc.price;
+  document.getElementById('plotBadge').textContent = t('badge_'+loc.badge);
+  document.getElementById('plotTenure').textContent = t('pf_tenure_v');
+  plotOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function refreshOpenPanel(){
+  if(currentPlot && plotOverlay.classList.contains('open')){
+    document.getElementById('plotBadge').textContent = t('badge_'+currentPlot.badge);
+    document.getElementById('plotTenure').textContent = t('pf_tenure_v');
+  }
+}
+function closePlot(){
+  plotOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('panelClose').addEventListener('click', closePlot);
+plotOverlay.addEventListener('click', e=>{ if(e.target===plotOverlay) closePlot(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePlot(); });
+document.getElementById('plotEnquire').addEventListener('click', closePlot);
+
+/* ============ ACCORDION ============ */
+document.querySelectorAll('.acc-head').forEach(head=>{
+  head.addEventListener('click', ()=>{
+    const item = head.closest('.acc-item');
+    const body = item.querySelector('.acc-body');
+    const isOpen = item.classList.toggle('open');
+    body.style.maxHeight = isOpen ? body.scrollHeight + 'px' : '0';
+  });
+});
+
+/* ============ HERO PARALLAX ============ */
+const heroBg = document.getElementById('heroBg');
+const whyBg = document.getElementById('whyBg');
+if(!REDUCED){
+  let ticking = false;
+  window.addEventListener('scroll', ()=>{
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(()=>{
+      const y = window.scrollY;
+      if(y < window.innerHeight*1.2){
+        heroBg.style.transform = `scale(1.06) translateY(${y*0.18}px)`;
+      }
+      if(whyBg){
+        const rect = whyBg.parentElement.getBoundingClientRect();
+        const prog = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        if(prog>=0 && prog<=1) whyBg.style.transform = `translateY(${(prog-0.5)*40}px) scale(1.08)`;
+      }
+      ticking = false;
+    });
+  }, {passive:true});
+}
+
+/* ============ INIT ============ */
+applyI18n();
+renderCalc();
+</script>
+</body>
+</html>
