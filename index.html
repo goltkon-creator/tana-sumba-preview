@@ -100,14 +100,10 @@ section{position:relative}
   -webkit-backdrop-filter:blur(18px) saturate(1.4);
   box-shadow:0 1px 0 rgba(246,241,231,.08);
 }
-.brand{
-  font-family:var(--serif);font-size:1.12rem;font-weight:800;letter-spacing:.22em;
-  color:var(--cream);white-space:nowrap;text-transform:uppercase;
-}
-.brand b{color:var(--terra-500);font-weight:800}
+.brand-logo{height:58px;width:auto;display:block}
 .nav-links{display:flex;align-items:center;gap:clamp(14px,2vw,30px)}
 .nav-links a.navlink{
-  font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.82;
+  font-size:.78rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.9;
   position:relative;padding:4px 0;transition:opacity .3s var(--ease);
 }
 .nav-links a.navlink::after{
@@ -134,6 +130,7 @@ section{position:relative}
 }
 .cta:hover{transform:translateY(-3px);background:var(--terra-500);box-shadow:0 14px 34px rgba(198,95,46,.5)}
 .cta:active{transform:translateY(-1px)}
+.nav .cta{font-weight:300;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;padding:11px 24px}
 .cta.ghost{background:rgba(246,241,231,.08);border:1px solid rgba(246,241,231,.3);box-shadow:none;color:var(--cream)}
 .cta.ghost:hover{background:rgba(246,241,231,.16)}
 
@@ -190,20 +187,21 @@ section{position:relative}
 }
 .hero-actions{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
 /* гигант-слово внизу (Terrava), низ за тонким прозрачным стеклом */
+/* гигант-слово SUMBA = стекло: видно ~90% (мягкий blur), под курсором большим радиусом становится чётким (только резкость, без свечения) */
 .hero-word{
   position:absolute;left:50%;bottom:-2.2vh;z-index:3;transform:translateX(-50%);
   font-family:var(--display);font-weight:900;font-stretch:125%;
   font-size:clamp(5rem,26vw,21rem);line-height:.8;letter-spacing:-.02em;
-  text-transform:uppercase;white-space:nowrap;
-  color:rgba(246,241,231,.98);text-shadow:0 4px 40px rgba(0,0,0,.32);
-  pointer-events:none;
+  text-transform:uppercase;white-space:nowrap;pointer-events:none;
+  --mx:-9999px;--my:-9999px;
 }
-.hero-glass{
-  position:absolute;left:0;right:0;bottom:0;z-index:4;height:6.2vh;pointer-events:none;
-  background:linear-gradient(180deg,rgba(18,36,26,.04),rgba(18,36,26,.2));
-  backdrop-filter:blur(7px) saturate(1.1);-webkit-backdrop-filter:blur(7px) saturate(1.1);
-  border-top:1px solid rgba(246,241,231,.1);
-}
+.hero-word .base,.hero-word .sharp{color:rgba(246,241,231,.9);text-shadow:0 4px 34px rgba(0,0,0,.28)}
+.hero-word .base{display:block;filter:blur(2.7px);
+  -webkit-mask-image:radial-gradient(circle 440px at var(--mx) var(--my),transparent 0%,transparent 46%,#000 84%);
+          mask-image:radial-gradient(circle 440px at var(--mx) var(--my),transparent 0%,transparent 46%,#000 84%)}
+.hero-word .sharp{position:absolute;inset:0;
+  -webkit-mask-image:radial-gradient(circle 440px at var(--mx) var(--my),#000 0%,#000 46%,transparent 84%);
+          mask-image:radial-gradient(circle 440px at var(--mx) var(--my),#000 0%,#000 46%,transparent 84%)}
 /* редакторская кнопка */
 .hero-cta{
   display:inline-flex;align-items:center;gap:16px;
@@ -579,7 +577,7 @@ input[type=range]::-moz-range-thumb{
 
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
-  <a href="#hero" class="brand">TANA <b>SUMBA</b></a>
+  <a href="#hero" class="brand"><img class="brand-logo" src="assets/logo-cream.png" alt="Tana Sumba"></a>
   <div class="nav-links">
     <a href="#numbers" class="navlink" data-i18n="nav_invest">Invest</a>
     <a href="#why" class="navlink" data-i18n="nav_why">Why Sumba</a>
@@ -626,8 +624,7 @@ input[type=range]::-moz-range-thumb{
       </div>
     </div>
   </div>
-  <div class="hero-word" aria-hidden="true">SUMBA</div>
-  <div class="hero-glass"></div>
+  <div class="hero-word" id="gw" aria-hidden="true"><span class="base">SUMBA</span><span class="sharp">SUMBA</span></div>
 </header>
 
 <!-- ============ SECTION 2 — NUMBERS + CALC ============ -->
@@ -1226,6 +1223,22 @@ if(!REDUCED){
     });
   }, {passive:true});
 }
+
+/* ============ HERO GLASS LENS (SUMBA проявляется под курсором) ============ */
+(function(){
+  const gw=document.getElementById('gw'), hero=document.getElementById('hero');
+  if(!gw||!hero) return;
+  const base=gw.querySelector('.base');
+  if(REDUCED){ if(base) base.style.filter='none'; return; }
+  let tx=-9999,ty=-9999,cx=-9999,cy=-9999;
+  function frame(){ cx+=(tx-cx)*0.12; cy+=(ty-cy)*0.12; gw.style.setProperty('--mx',cx+'px'); gw.style.setProperty('--my',cy+'px'); requestAnimationFrame(frame); }
+  requestAnimationFrame(frame);
+  hero.addEventListener('pointermove',e=>{ const r=gw.getBoundingClientRect(); tx=e.clientX-r.left; ty=e.clientY-r.top; });
+  hero.addEventListener('pointerleave',()=>{ tx=-9999; ty=-9999; });
+  window.addEventListener('load',()=>{ const r=gw.getBoundingClientRect(); const W=r.width,H=r.height; let t0=null;
+    function sweep(ts){ if(t0===null)t0=ts; const p=(ts-t0)/1900; if(p>=1){ tx=-9999; ty=-9999; return; } tx=W*(0.08+0.84*p); ty=H*0.52; requestAnimationFrame(sweep); }
+    requestAnimationFrame(sweep); });
+})();
 
 /* ============ INIT ============ */
 applyI18n();
