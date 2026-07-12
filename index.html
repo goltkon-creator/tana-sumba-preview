@@ -29,7 +29,7 @@
 
   --maxw:1240px;
   --pad:clamp(20px,5vw,80px);
-  --edge:clamp(16px,2.4vw,46px);
+  --edge:clamp(20px,3vw,60px);
 }
 
 /* ============ RESET ============ */
@@ -190,7 +190,7 @@ section{position:relative}
 /* гигант-слово внизу (Terrava), низ за тонким прозрачным стеклом */
 /* гигант-слово SUMBA = стекло: видно ~90% (мягкий blur), под курсором большим радиусом становится чётким (только резкость, без свечения) */
 .hero-word{
-  position:absolute;left:50%;bottom:-2.2vh;z-index:3;transform:translateX(-50%);
+  position:absolute;left:var(--edge);bottom:clamp(32px,4vh,60px);z-index:3;
   font-family:var(--display);font-weight:900;font-stretch:125%;
   font-size:clamp(5rem,26vw,21rem);line-height:.8;letter-spacing:-.02em;
   text-transform:uppercase;white-space:nowrap;pointer-events:none;
